@@ -1,10 +1,18 @@
 <!--Noted as being timetable as main, day inner, time, inner of day, course inner of day/time-->
 <!ELEMENT timetable (days, periods, course)>
-<!ATTLIST timetable year(2014|2015|2016|2017) #REQUIRED
+<!ATTLIST timetable year (2014|2015|2016|2017) #REQUIRED
 	  term (1|2|3|4) #REQUIRED>
 
 <!ELEMENT days (dayoftheweek*)>
 <!ATTLIST dayoftheweek day (mon|tue|wed|thu|fri) #REQUIRED>
+
+<!ELEMENT period (timeblock*)>
+<!ELEMENT timeblock (booking)>
+<!ATTLIST timeblock time (8:30|9:30|11:30|12:30|13:30|14:30|15:30|16:30) #REQUIRED>
+
+<!ELEMENT courses (course)>
+<!ELEMENT course (info*)>
+<!ATTLIST course course (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4932) #REQUIRED>
 
 <!ELEMENT info (building,room,instructor,time?,day?,class?)>
 <!ATTLIST info type (lecture|lab) #REQUIRED>
@@ -14,12 +22,4 @@
 	<!ELEMENT time (#PCDATA)>
 	<!ELEMENT day (#PCDATA)>
 	<!ELEMENT class (#PCDATA)>
-
-<!ELEMENT period (timeblock*)>
-<!ELEMENT timeblock (booking)>
-<!ATTLIST timeblock time (8:30|9:30|11:30|12:30|13:30|14:30|15:30|16:30) #REQUIRED>
-
-<!ELEMENT courses (course)>
-<!ELEMENT course (info*)>
-<!ATTLIST course course(BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4932) #REQUIRED>
 
