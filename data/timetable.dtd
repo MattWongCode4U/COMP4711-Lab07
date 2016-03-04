@@ -12,7 +12,7 @@
 
 <!ELEMENT courses (course)>
 <!ELEMENT course (info*)>
-<!ATTLIST course course (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4932) #REQUIRED>
+<!ATTLIST course course (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4995) #REQUIRED>
 
 <!ELEMENT info (building,room,instructor,time?,day?,class?)>
 <!ATTLIST info type (lecture|lab) #REQUIRED>
