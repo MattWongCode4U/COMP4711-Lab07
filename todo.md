@@ -1,3 +1,14 @@
+# ToDo
+---
+- Spencer: day
+- Luda: time
+- Matt: class
+
+#### Team ToDo
+---
+- Make DTD
+	- do this for each xml? or master xml?
+
 3 Model Views
 ---
 - By day
