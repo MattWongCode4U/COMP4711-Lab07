@@ -3,8 +3,8 @@
 
 <timetable year="2016" term="4">
 	<days>
-		<daysoftheweek day="mon">
-			<info type="lecture-lab">
+		<dayoftheweek day="mon">
+			<info type="lab">
 				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
@@ -18,114 +18,106 @@
 				<time>11:30</time>
 				<class>COMP4735</class>
 			</info>
-			<info type="lecture-lab">
+			<info type="lab">
 				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<time>14:30</time>
 				<class>COMP4995</class>
 			</info>
-		</daysoftheweek>
-	</days>
-	<days>
-		<daysoftheweek day="tue">
-            <info type="lab">
-                <building>SE-12</building>
-                <room>320</room>
-                <instructor>Brenda Fine</instructor>
-                <time>9:30</time>
-                <class>COMP4560</class>
-            </info>
-            <info type="lecture">
-                <building>SW-5</building>
-                <room>1850</room>
-                <instructor>Brenda Fine</instructor>
-                <time>11:30</time>
-                <class>COMP4560</class>
-            </info>
-            <info type="lecture">
-                <building>SW-5</building>
-                <room>1840</room>
-                <instructor>James Parry</instructor>
-                <time>14:30</time>
-                <class>COMP4711</class>
-            </info>
-            <info type="lecture-lab">
-                <building>SE-12</building>
-                <room>308</room>
-                <instructor>Dennis Richards</instructor>
-                <time>15:30</time>
-                <class>COMP4932</class>
-            </info>
-		</daysoftheweek>
-	</days>
-	<days>
-		<daysoftheweek day="wed">
-            <info type="lab">
-                <building>SE-12</building>
-                <room>308</room>
-                <instructor>Matthew Linder</instructor>
-                <time>8:30</time>
-                <class>COMP4735</class>
-            </info>
-            <info type="lecture">
-                <building>SE-12</building>
-                <room>308</room>
-                <instructor>Dennis Richards</instructor>
-                <time>10:30</time>
-                <class>COMP4995</class>
-            </info>
-            <info type="lecture">
-                <building>SE-1</building>
-                <room>1205</room>
-                <instructor>Mirela Gutica</instructor>
-                <time>13:30</time>
-                <class>COMP4735</class>
-            </info>
-		</daysoftheweek>
-	</days>
-	<days>
-		<daysoftheweek day="thu">
-            <info type="lecture-lab">
-                <building>SW-3</building>
-                <room>1710</room>
-                <instructor>Mirela Gutica</instructor>
-                <time>11:30</time>
-                <class>COMP4735</class>
-            </info>
-            <info type="lab">
-                <building>Sw-3</building>
-                <room>4725</room>
-                <instructor>Catherine Ryan</instructor>
-                <time>13:30</time>
-                <class>BLAW3600</class>
-            </info>
-            <info type="lecture-lab">
-                <building>SE-12</building>
-                <room>310</room>
-                <instructor>James Parry</instructor>
-                <time>15:30</time>
-                <class>COMP4711</class>
-            </info>
-		</daysoftheweek>
-	</days>
-	<days>
-		<daysoftheweek day="fri">
-            <info type="lecture">
-                <building>SW-5</building>
-                <room>1840</room>
-                <instructor>Catherine Ryan</instructor>
-                <time>8:30</time>
-                <class>BLAW3600</class>
-            </info>
-            <info type="lecture">
-                <building>SW-3</building>
-                <room>1750</room>
-                <instructor>Brenda Fine</instructor>
-                <time>12:30</time>
-                <class>COMP4560</class>
-            </info>
-		</daysoftheweek>
+		</dayoftheweek>
+	    <dayoftheweek day="tue">
+	        <info type="lab">
+	            <building>SE-12</building>
+	            <room>320</room>
+	            <instructor>Brenda Fine</instructor>
+	            <time>9:30</time>
+	            <class>COMP4560</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SW-5</building>
+	            <room>1850</room>
+	            <instructor>Brenda Fine</instructor>
+	            <time>11:30</time>
+	            <class>COMP4560</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SW-5</building>
+	            <room>1840</room>
+	            <instructor>James Parry</instructor>
+	            <time>14:30</time>
+	            <class>COMP4711</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SE-12</building>
+	            <room>308</room>
+	            <instructor>Dennis Richards</instructor>
+	            <time>15:30</time>
+	            <class>COMP4932</class>
+	        </info>
+	    </dayoftheweek>
+	    <dayoftheweek day="wed">
+	        <info type="lab">
+	            <building>SE-12</building>
+	            <room>308</room>
+	            <instructor>Matthew Linder</instructor>
+	            <time>8:30</time>
+	            <class>COMP4735</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SE-12</building>
+	            <room>308</room>
+	            <instructor>Dennis Richards</instructor>
+	            <time>10:30</time>
+	            <class>COMP4995</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SE-1</building>
+	            <room>1205</room>
+	            <instructor>Mirela Gutica</instructor>
+	            <time>13:30</time>
+	            <class>COMP4735</class>
+	        </info>
+	    </dayoftheweek>
+	    <dayoftheweek day="thu">
+	        <info type="lecture">
+	            <building>SW-3</building>
+	            <room>1710</room>
+	            <instructor>Mirela Gutica</instructor>
+	            <time>11:30</time>
+	            <class>COMP4735</class>
+	        </info>
+	        <info type="lab">
+	            <building>Sw-3</building>
+	            <room>4725</room>
+	            <instructor>Catherine Ryan</instructor>
+	            <time>13:30</time>
+	            <class>BLAW3600</class>
+	        </info>
+	        <info type="lab">
+	            <building>SE-12</building>
+	            <room>310</room>
+	            <instructor>James Parry</instructor>
+	            <time>15:30</time>
+	            <class>COMP4711</class>
+	        </info>
+	    </dayoftheweek>
+	    <dayoftheweek day="fri">
+	        <info type="lecture">
+	            <building>SW-5</building>
+	            <room>1840</room>
+	            <instructor>Catherine Ryan</instructor>
+	            <time>8:30</time>
+	            <class>BLAW3600</class>
+	        </info>
+	        <info type="lecture">
+	            <building>SW-3</building>
+	            <room>1750</room>
+	            <instructor>Brenda Fine</instructor>
+	            <time>12:30</time>
+	            <class>COMP4560</class>
+	        </info>
+	    </dayoftheweek>
 	</days>
 </timetable>
 
