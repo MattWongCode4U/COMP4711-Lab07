@@ -3,7 +3,7 @@
 
 <timetable year="2016" term="4">
 	<courses>
-		<course course="BLAW3600">
+		<course id="BLAW3600">
 			<info type="lab">
 				<building>SW-3</building>
 				<room>4725</room>
@@ -19,7 +19,7 @@
 				<day>fri</day>
 			</info>
 		</course>
-		<course course="COMP4560">
+		<course id="COMP4560">
 			<info type="lab">
 				<building>SE12</building>
 				<room>320</room>
@@ -42,7 +42,7 @@
 				<day>fri</day>
 			</info>
 		</course>
-		<course course="COMP4711">
+		<course id="COMP4711">
 			<info type="lecture">
 				<building>SW5</building>
 				<room>1840</room>
@@ -58,7 +58,7 @@
 				<day>thu</day>
 			</info>
 		</course>
-		<course course="COMP4735">
+		<course id="COMP4735">
 			<info type="lecture">
 				<building>SW1</building>
 				<room>1205</room>
@@ -88,7 +88,7 @@
 				<day>thu</day>
 			</info>
 		</course>
-		<course course="COMP4932">
+		<course id="COMP4932">
 			<info type="lecture">
 				<building>SE12</building>
 				<room>308</room>
@@ -104,7 +104,7 @@
 				<day>tue</day>
 			</info>
 		</course>
-		<course course="COMP4995">
+		<course id="COMP4995">
 			<info type="lab">
 				<building>SE12</building>
 				<room>308</room>
