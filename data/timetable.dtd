@@ -18,12 +18,12 @@
 <!ELEMENT day (#PCDATA)>
 <!ELEMENT class (#PCDATA)>
 
-<!ELEMENT periods (timeblock*)>
+<!ELEMENT periods (timeblock)*>
 <!ELEMENT timeblock (info)*>
 <!ATTLIST timeblock 
         time (8:30|9:30|11:30|12:30|13:30|14:30|15:30|16:30) #REQUIRED>
 
-<!ELEMENT courses (course)>
-<!ELEMENT course (info*)>
+<!ELEMENT courses (course*)>
+<!ELEMENT course (info)*>
 <!ATTLIST course 
-        course (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4995) #REQUIRED>
+        id (BLAW3600|COMP4560|COMP4711|COMP4735|COMP4932|COMP4995) #REQUIRED>
