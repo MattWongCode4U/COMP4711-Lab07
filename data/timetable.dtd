@@ -9,19 +9,20 @@
 <!ATTLIST dayoftheweek 
         day (mon|tue|wed|thu|fri) #REQUIRED>
         
-<!ELEMENT info (building,room,instructor,time?,day?,class?)>
+<!ELEMENT info (building,room,instructor,stime?,etime,day?,class?)>
 <!ATTLIST info type (lecture|lab) #REQUIRED>
 <!ELEMENT building (#PCDATA)>
 <!ELEMENT room (#PCDATA)>
 <!ELEMENT instructor (#PCDATA)>
-<!ELEMENT time (#PCDATA)>
+<!ELEMENT stime (#PCDATA)>
+<!ELEMENT etime (#PCDATA)>
 <!ELEMENT day (#PCDATA)>
 <!ELEMENT class (#PCDATA)>
 
 <!ELEMENT periods (timeblock)*>
 <!ELEMENT timeblock (info)*>
 <!ATTLIST timeblock 
-        time (8:30|9:30|10:30|11:30|12:30|13:30|14:30|15:30|16:30) #REQUIRED>
+        stime (8:30|9:30|10:30|11:30|12:30|13:30|14:30|15:30|16:30) #REQUIRED>
 
 <!ELEMENT courses (course*)>
 <!ELEMENT course (info)*>

@@ -3,11 +3,12 @@
 
 <timetable year="2016" term="4">
 	<periods>
-		<timeblock time="8:30">
+		<timeblock stime="8:30">
 			<info type="lab">
 				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
+				<etime>11:20</etime>
 				<day>mon</day>
 				<class>COMP4932</class>
 			</info>
@@ -15,6 +16,7 @@
 				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Mathew Linder</instructor>
+				<etime>10:20</etime>
 				<day>wed</day>
 				<class>COMP4735</class>
 			</info>
@@ -22,68 +24,76 @@
 				<building>SW-5</building>
 				<room>1840</room>
 				<instructor>Catherine Ryan</instructor>
+				<etime>10:20</etime>
 				<day>fri</day>
 				<class>BLAW3600</class>
 			</info>
 		</timeblock>
-	    <timeblock time="9:30">
+	    <timeblock stime="9:30">
 	        <info type="lab">
 	            <building>SE-12</building>
 	            <room>320</room>
 	            <instructor>Brenda Fine</instructor>
-	            <day>tue</day>
+	            <etime>11:20</etime>
+				<day>tue</day>
 	            <class>COMP4560</class>
 	        </info>	        
 	    </timeblock>
-	    <timeblock time="10:30">
+	    <timeblock stime="10:30">
 	        <info type="lecture">
 	            <building>SE-12</building>
 	            <room>308</room>
 	            <instructor>Dennis Richards</instructor>
-	            <day>wed</day>
+	            <etime>13:20</etime>
+				<day>wed</day>
 	            <class>COMP4995</class>
 	        </info>
 	    </timeblock>
-	    <timeblock time="11:30">
+	    <timeblock stime="11:30">
 	        <info type="lecture">
 	            <building>SW-1</building>
 	            <room>1205</room>
 	            <instructor>Mirela Gutica</instructor>
-	            <day>mon</day>
+	            <etime>12:20</etime>
+				<day>mon</day>
 	            <class>COMP4735</class>
 	        </info>
 			<info type="lecture">
 	            <building>SW-5</building>
 	            <room>1850</room>
 	            <instructor>Brenda Fine</instructor>
-	            <day>tue</day>
+	            <etime>12:20</etime>
+				<day>tue</day>
 	            <class>COMP4560</class>
 	        </info>
 	        <info type="lab">
 	            <building>SE-12</building>
 	            <room>308</room>
 	            <instructor>Dennis Richards</instructor>
-	            <day>wed</day>
+	            <etime>12:20</etime>
+				<day>wed</day>
 	            <class>COMP4995</class>
 	        </info>
 			<info type="lecture">	
 	            <building>SW-3</building>
 	            <room>1710</room>
 	            <instructor>Mirela Gutica</instructor>
-	            <day>thu</day>
+	            <etime>12:20</etime>
+				<day>thu</day>
 	            <class>COMP4735</class>
 	        </info>
 	    </timeblock>
-	    <timeblock time="12:30">
+	    <timeblock stime="12:30">
 	        <info type="lecture">
 	            <building>SW-3</building>
 	            <room>1750</room>
 	            <instructor>Brenda Fine</instructor>
-	            <day>fri</day>
+	            <etime>13:20</etime>
+				<day>fri</day>
 	            <class>COMP4560</class>
 	        </info>
 	    </timeblock>
-		<timeblock time="13:30">
+		<timeblock stime="13:30">
 	        <info type="lecture">
 	            <building>SW-1</building>
 	            <room>1205</room>
@@ -95,39 +105,44 @@
 	            <building>SW-3</building>
 	            <room>4725</room>
 	            <instructor>Catherine Ryan</instructor>
-	            <day>thu</day>
+	            <etime>14:20</etime>
+				<day>thu</day>
 	            <class>BLAW3600</class>
 	        </info>
 	    </timeblock>
-		<timeblock time="14:30">
+		<timeblock stime="14:30">
 	        <info type="lab">
 	            <building>SE-12</building>
 	            <room>308</room>
 	            <instructor>Dennis Richards</instructor>
-	            <day>mon</day>
+	            <etime>17:20</etime>
+				<day>mon</day>
 	            <class>COMP4995</class>
 	        </info>
 	        <info type="lecture">
 	            <building>SW-5</building>
 	            <room>1840</room>
 	            <instructor>James Parry</instructor>
-	            <day>tue</day>
+	            <etime>15:20</etime>
+				<day>tue</day>
 	            <class>COMP4711</class>
 	        </info>
 	    </timeblock>
-		<timeblock time="15:30">
+		<timeblock stime="15:30">
 	        <info type="lecture">
 	            <building>SE-12</building>
 	            <room>308</room>
 	            <instructor>Dennis Richards</instructor>
-	            <day>tue</day>
+	            <etime>17:20</etime>
+				<day>tue</day>
 	            <class>COMP4932</class>
 	        </info>
 	        <info type="lab">
 	            <building>SE-12</building>
 	            <room>310</room>
 	            <instructor>James Parry</instructor>
-	            <day>thu</day>
+	            <etime>17:20</etime>
+				<day>thu</day>
 	            <class>COMP4711</class>
 	        </info>
 	    </timeblock>
