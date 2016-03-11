@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// User Defined
+define('DATAPATH', './data/');
+define('XMLSUFFIX', '.xml');
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
