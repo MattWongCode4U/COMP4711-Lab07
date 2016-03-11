@@ -20,6 +20,31 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+            $this->load->helper('directory');
+            $days = $this->timetable->getDaysArray();
+            $periods = $this->timetable->getPeriodsArray();
+            $courses = $this->timetable->getCoursesArray();
+            // Setup drop down's with the 'keys'
+                // days = 'mon' 'tue' 'wed'...
+                // periods = '8:30' '9:30' '10:30'
+                // courses = 'BLAW3600' 'COMP4560' 'COMP4711'
+            
+            // Parse out to the Search.php file in {dropdown}
+                // format example: <option value="mon">mon</option>
+            //$this->dropdown = 
+            
+            // Load the php files
+                // header
+                // search
+                // footer
+            $this->load->view('header');
+            $this->parser->parse('dropdown', $this->dropdown);
+            $this->load->view('footer');
+            //$this->load->view('welcome_message');
 	}
+        
+        function __construct(){
+            parent::__construct();
+            $this->load->model('timetable');
+        }
 }
