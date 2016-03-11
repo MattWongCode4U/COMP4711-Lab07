@@ -77,24 +77,29 @@ class Timetable extends CI_Model {
     function getDaysArray(){
         return $this->days;
     }
+    
     function getDaysInfoArray($day){
         if(isset($this->days[$day]))
             return $this->days[$day];
         else
             return null;
     }
+    
     function getCoursesArray(){
         return $this->courses;
     }
+    
     function getCoursesInfoArray($id){
         if(isset($this->courses[$id]))
-                return $this->courses[$id];
+            return $this->courses[$id];
         else
             return null;
     }
+    
     function getPeriodsArray(){
         return $this->periods;
     }
+    
     function getPeriodsInfoArray($time){
         if(isset($this->periods[$time]))
             return $this->periods[$time];
@@ -103,6 +108,19 @@ class Timetable extends CI_Model {
     }
     
     
+    
+    // Day Facet
+    public function findByDay($day, $id){
+        
+    }
+    // Period Facet
+    public function findByTime($time, $id){
+        
+    }
+    // Class Facet
+    public function findByClass($class){
+        
+    }
 }
 
 class InfoClass {
