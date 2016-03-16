@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
-
+        protected $data = array();
 	/**
 	 * Index Page for this controller.
 	 *
@@ -32,22 +32,26 @@ class Welcome extends CI_Controller {
             // Parse out to the Search.php file in {dropdown}
                 // format example: <option value="mon">mon</option>
             //$this->dropdown = 
-            $data = array(  'title' => 'Select class',
-                            'selection' => array(array(
-                                                    'option' => '<option value=\"mon\">mon</option>'
+            // Testing
+            /*
+            $this->data = array('selection' => array(array(
+                                                    'option' => '<option value=mon>mon</option>'
                                                  ),
                                                  array(
-                                                    'option' => '<option value=\"tues\">tue</option>'
+                                                    'option' => '<option value=tue>tue</option>'
+                                                 ),
+                                                 array(
+                                                    'option' => '<option value=wed>wed</option>'
                                                  )
                                                 )
                         );
-                                // is_array check
+            */ // This is a test for how the data is loaded for the options
             // Load the php files
                 // header
                 // search
                 // footer
             $this->load->view('header');
-            $this->parser->parse('dropdown', $data);
+            $this->parser->parse('dropdown', $this->data);
             //$this->parser->parse('classes', $this->courses); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
             //$this->load->view('welcome_message');
