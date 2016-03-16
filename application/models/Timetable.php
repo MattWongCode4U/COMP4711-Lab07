@@ -52,7 +52,7 @@ class Timetable extends CI_Model {
                 $tempi->etime = (string) $info->etime;
                 $tempi->day = (string) $info->day;
                 $tempi->course = (string) $info->class;
-                
+   
 //                $this->periods[(string) $timeblock['time']] = $tempi;
                 $temp[] = array($tempi);
             }

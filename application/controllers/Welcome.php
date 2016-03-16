@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+            function __construct(){
+            parent::__construct();
+            $this->load->model('timetable');
+        }
         protected $data = array();
 	/**
 	 * Index Page for this controller.
@@ -45,7 +49,9 @@ class Welcome extends CI_Controller {
                                                  )
                                                 )
                         );
-            */ // This is a test for how the data is loaded for the options
+            */
+            $this->data = array('selection' => array($days));
+             // This is a test for how the data is loaded for the options
             // Load the php files
                 // header
                 // search
@@ -57,8 +63,4 @@ class Welcome extends CI_Controller {
             //$this->load->view('welcome_message');
 	}
         
-        function __construct(){
-            parent::__construct();
-            $this->load->model('timetable');
-        }
 }
