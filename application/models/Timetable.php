@@ -36,9 +36,9 @@ class Timetable extends CI_Model {
                 $tempi->course = (string) $info->class;
 
 //                $this->days[(string) $day['day']] = $tempi;
-                $temp[] = array($tempi);
+                $temp_days[] = array($tempi);
             }
-            $this->days[] = array((string) $day['day'], $temp);
+            $this->days[(string) $day['day']][] = $temp_days;
         }
         
         // Load periods array
@@ -54,14 +54,15 @@ class Timetable extends CI_Model {
                 $tempi->course = (string) $info->class;
                 
 //                $this->periods[(string) $timeblock['time']] = $tempi;
-                $temp[] = array($tempi);
+                $temp_periods[] = array($tempi);
             }
-            $this->periods[] = array((string) $timeblock['time'], $temp);
+            $this->periods[(string) $timeblock['time']][] = $temp_periods;
         } 
         
         // Load courses array
         $this->xclass = simplexml_load_file(DATAPATH . 'class.xml');
         foreach($this->xclass->courses->course as $course){
+            //$this->courses[] = (string) $course['id'];
             foreach($course->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -72,9 +73,9 @@ class Timetable extends CI_Model {
                 $tempi->day = (string) $info->day;
                 
 //                $this->courses[(string) $course['id']] = $tempi;
-                $temp[] = array($tempi);
+                 $temp_courses[] = $tempi;
             }
-            $this->courses[] = array((string) $course['id'], $temp);
+            $this->courses[(string) $course['id']][] = $temp_courses;
         }
     }
     

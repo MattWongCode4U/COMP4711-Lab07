@@ -45,7 +45,14 @@ class Welcome extends CI_Controller {
                                                  )
                                                 )
                         );
+            print_r($this->data);
+            echo "/n";
             */ // This is a test for how the data is loaded for the options
+            while($key = current($courses)){
+                  $temp_course[] = array('option' => '<option value=\"' .(string) key($courses). '\">' . (string) key($courses) . '</option>');
+                  next($courses);
+            }
+            $this->data['selection'] = $temp_course;
             // Load the php files
                 // header
                 // search
