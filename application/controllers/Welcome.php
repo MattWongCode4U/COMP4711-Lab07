@@ -32,13 +32,16 @@ class Welcome extends CI_Controller {
             // Parse out to the Search.php file in {dropdown}
                 // format example: <option value="mon">mon</option>
             //$this->dropdown = 
-            
+            $this->dropdown = array();
+            $this->dropdown = $this->timetable->getCoursesArray();
+
             // Load the php files
                 // header
                 // search
                 // footer
             $this->load->view('header');
             $this->parser->parse('dropdown', $this->dropdown);
+            //$this->parser->parse('classes', $this->courses); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
             //$this->load->view('welcome_message');
 	}
