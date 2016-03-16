@@ -2,6 +2,7 @@ Newest at the top
 
 Month date, year, time {description}
 
+Mar 15, 2016, 20:43 Got drop down selection working for classes. Others setup for more drop downs
 Mar 11, 2016, 09:44 Added functions to Welcome & Timetable
 Mar 4,  2016, 18:25 Validated "period" file
 Mar 4,  2016, 16:27 Validated "class" file

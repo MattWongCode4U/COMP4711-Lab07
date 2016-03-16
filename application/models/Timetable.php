@@ -6,8 +6,6 @@
   * Created by Spencer 03/10/2016 12:51:48 PM PST
   */
 
-// DATAPATH = '../data' // ?
-
 class Timetable extends CI_Model {
     protected $xday = null; // xml document root (ie timetable)
     protected $xperiod = null; // period xml
@@ -23,10 +21,10 @@ class Timetable extends CI_Model {
     {
         // Call the Model constructor
         parent::__construct();
-
+        
         // Load days array
-        $this->xday = simplexml_load_file(DATAPATH . 'days.xml');
-        foreach($this->xday->timetable->days->dayoftheweek as $day){
+        $this->xday = simplexml_load_file(DATAPATH . 'day.xml');
+        foreach($this->xday->days->dayoftheweek as $day){
             foreach($day->info as $info){
                 // do stuff to info
                 $tempi = new InfoClass();
@@ -37,13 +35,15 @@ class Timetable extends CI_Model {
                 $tempi->etime = (string) $info->etime;
                 $tempi->course = (string) $info->class;
 
-                $this->days[(string) $day['day']] = (string) $tempi;
+//                $this->days[(string) $day['day']] = $tempi;
+                $temp_days[] = array($tempi);
             }
+            $this->days[(string) $day['day']][] = $temp_days;
         }
         
         // Load periods array
-        $this->xperiod = simplexml_load_file(DATAPATH . 'periods.xml');
-        foreach($this->xperiod->timetable->periods->timeblock as $timeblock){
+        $this->xperiod = simplexml_load_file(DATAPATH . 'period.xml');
+        foreach($this->xperiod->periods->timeblock as $timeblock){
             foreach($timeblock->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -53,13 +53,16 @@ class Timetable extends CI_Model {
                 $tempi->day = (string) $info->day;
                 $tempi->course = (string) $info->class;
                 
-                $this->periods[(string) $timeblock['time']] = (string) $tempi;
+//                $this->periods[(string) $timeblock['time']] = $tempi;
+                $temp_periods[] = array($tempi);
             }
+            $this->periods[(string) $timeblock['time']][] = $temp_periods;
         } 
         
         // Load courses array
         $this->xclass = simplexml_load_file(DATAPATH . 'class.xml');
-        foreach($this->xclass->timetable->courses->course as $course){
+        foreach($this->xclass->courses->course as $course){
+            //$this->courses[] = (string) $course['id'];
             foreach($course->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -69,8 +72,10 @@ class Timetable extends CI_Model {
                 $tempi->etime = (string) $info->etime;
                 $tempi->day = (string) $info->day;
                 
-                $this->courses[(string) $course['id']] = (string) $tempi;
+//                $this->courses[(string) $course['id']] = $tempi;
+                 $temp_courses[] = $tempi;
             }
+            $this->courses[(string) $course['id']][] = $temp_courses;
         }
     }
     
@@ -107,8 +112,10 @@ class Timetable extends CI_Model {
             return null;
     }
     
-    
-    
+    // This will be called when we search.
+    // We need to have it so that there are 2 drop downs
+        // One for the course we want
+        // One for the list type we want
     // Day Facet
     public function findByDay($day, $id){
         
@@ -118,7 +125,7 @@ class Timetable extends CI_Model {
         
     }
     // Class Facet
-    public function findByClass($class){
+    public function findByClass($id){
         
     }
 }
