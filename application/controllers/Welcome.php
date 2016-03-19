@@ -59,7 +59,7 @@ class Welcome extends CI_Controller {
                 // footer
             $this->load->view('header');
             $this->parser->parse('dropdown', $this->data);
-            //$this->parser->parse('classes', $this->courses); // This is where the data from the dropdown select will be loaded
+            $this->parser->parse('classes', $this->courses); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
             //$this->load->view('welcome_message');
 	}
