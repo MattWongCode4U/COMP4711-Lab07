@@ -62,7 +62,15 @@ class Welcome extends CI_Controller {
                 
                 $found = $this->timetable->findByClass($_POST['class']);
                 foreach($found as $course){
-                    $info[] = array('detail' => '<tr><td>' . (string) $course.course . '</td></tr>');
+                    $info[] = array('detail' => '<tr>'.
+                        '<td>' . (string) $course->building . '</td>'.
+                        '<td>' . (string) $course->room . '</td>'.
+                        '<td>' . (string) $course->instructor . '</td>'.
+                        '<td>' . (string) $course->stime . '</td>'.
+                        '<td>' . (string) $course->etime . '</td>'.
+                        '<td>' . (string) $course->day . '</td>'.
+                        '<td>' . (string) $course->course . '</td>'.
+                        '</tr>');
                 }
                 $this->data['info'] = $info;
                 
