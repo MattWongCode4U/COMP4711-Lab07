@@ -1,8 +1,8 @@
-<form>
-    <select>
+<form method="post">
+    <select name="class">
         {selection}
         {option}
         {/selection}
     </select>
-    <input type="button" value="Search">
+    <input type=submit value="Search">
 </form>

@@ -49,17 +49,38 @@ class Welcome extends CI_Controller {
             echo "/n";
             */ // This is a test for how the data is loaded for the options
             while($key = current($courses)){
-                  $temp_course[] = array('option' => '<option value=\"' .(string) key($courses). '\">' . (string) key($courses) . '</option>');
+                  $temp_course[] = array('option' => '<option value=' .(string) key($courses). '>' . (string) key($courses) . '</option>');
                   next($courses);
             }
             $this->data['selection'] = $temp_course;
+            
+            //Filling in information table
+            if(isset($_POST['class'])){ //Searched for a course
+                $selected_course = $_POST['class'];
+                //display information about the selected course
+                //$selected_course_arr = $courses[$selected_course];
+            }else{ //First time before searching
+                $selected_course = "ExampleCourseID";
+                $temp_display = null;
+            }
+            
+            $this->data['courseID'] = $selected_course;
+            
+            //$testbuilding[] = array("building1" => "building 1", "building2" => "building 2");
+            //$testroom[] = array("room1" => "room 1", "room2" => "room2");
+            /*$temp_display[] = array('detail' => '<tr><td>' . (string)key($testbuilding[0]) . '</td>'
+                . '<td>' . (string)key($testroom[0]) . '</td></tr>', 
+                'detail' => '<tr><td>' . (string)key($testbuilding[1]) . '</td>'
+                . '<td>' . (string)key($testroom[1]) . '</td></tr>');*/
+            $this->data['info'] = $temp_display;
+            
             // Load the php files
                 // header
                 // search
                 // footer
             $this->load->view('header');
             $this->parser->parse('dropdown', $this->data);
-            $this->parser->parse('classes', $this->courses); // This is where the data from the dropdown select will be loaded
+            $this->parser->parse('classes', $this->data); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
             //$this->load->view('welcome_message');
 	}
