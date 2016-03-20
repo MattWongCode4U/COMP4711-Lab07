@@ -100,7 +100,7 @@ class Timetable extends CI_Model {
         else
             return null;
     }
-    
+
     function getPeriodsArray(){
         return $this->periods;
     }
@@ -126,7 +126,15 @@ class Timetable extends CI_Model {
     }
     // Class Facet
     public function findByClass($id){
-        
+        $temp = '';
+        if(isset($this->courses[$id])){
+            foreach($this->courses[$id] as $course){
+                foreach($course as $info){
+                    $temp = (string) $info.building;
+                }
+            }
+        }
+        return $temp;
     }
 }
 

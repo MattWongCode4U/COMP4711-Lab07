@@ -53,12 +53,19 @@ class Welcome extends CI_Controller {
                   next($courses);
             }
             $this->data['selection'] = $temp_course;
-            
+
             //Filling in information table
             if(isset($_POST['class'])){ //Searched for a course
                 $selected_course = $_POST['class'];
                 //display information about the selected course
                 //$selected_course_arr = $courses[$selected_course];
+                
+                $found = $this->timetable->findByClass($_POST['class']);
+                foreach($found as $course){
+                    $info[] = array('detail' => '<tr><td>' . (string) $course.course . '</td></tr>');
+                }
+                $this->data['info'] = $info;
+                
             }else{ //First time before searching
                 $selected_course = "ExampleCourseID";
                 $temp_display = null;
@@ -72,7 +79,7 @@ class Welcome extends CI_Controller {
                 . '<td>' . (string)key($testroom[0]) . '</td></tr>', 
                 'detail' => '<tr><td>' . (string)key($testbuilding[1]) . '</td>'
                 . '<td>' . (string)key($testroom[1]) . '</td></tr>');*/
-            $this->data['info'] = $temp_display;
+            //$this->data['info'] = $temp_display;
             
             // Load the php files
                 // header
