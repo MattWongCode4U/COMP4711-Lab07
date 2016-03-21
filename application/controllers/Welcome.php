@@ -74,37 +74,83 @@ class Welcome extends CI_Controller {
                 $selected_course = $_POST['class'];
                 $selected_time = $_POST['time'];
                 $selected_day = "ExampleDay";
-                echo "Both class and time are selected";
+                
+                $classesfound = $this->timetable->findByClass($_POST['class']);
+                $subset = array();
+                foreach($classesfound as $thing){
+                    if($thing->stime == $selected_time){
+                        $subset[] = $thing;
+                    }
+                }
+                
+                $info = $this->tableInfo($subset);
+                $this->data['info'] = $info;
             
             //  Class and day selected
             }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] == '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
                 $selected_course = $_POST['class'];
                 $selected_time = "ExampleTime";
                 $selected_day = $_POST['day'];
-                echo "Both class and day are selected";
+                
+                $classesfound = $this->timetable->findByClass($_POST['class']);
+                $subset = array();
+                foreach($classesfound as $thing){
+                    if($thing->day == $selected_day){
+                        $subset[] = $thing;
+                    }
+                }
+                
+                $info = $this->tableInfo($subset);
+                $this->data['info'] = $info;
                 
             //  Time and day selected
             }else if((isset($_POST['class'])&& $_POST['class'] == '-')&& (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
                 $selected_course = "ExampleCourseID";
                 $selected_time = $_POST['time'];
                 $selected_day = $_POST['day'];
-                echo "Both time and day are selected";
+                
+                $timefound = $this->timetable->findByTime($_POST['time']);
+
+                foreach($timefound as $thing){
+                    if($thing->day == $selected_day){
+                        $subset[] = $thing;
+                    }
+                }
+                
+                $info = $this->tableInfo($subset);
+                $this->data['info'] = $info;
                 
             //  Class, time and day selected
             }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
                 $selected_course = $_POST['class'];
                 $selected_time = $_POST['time'];
                 $selected_day = $_POST['day'];
-                echo "Class, time and day are selected";
                 
-            }
+                $classesfound = $this->timetable->findByClass($_POST['class']);
+                $subset = array();
+                foreach($classesfound as $thing){
+                    if($thing->stime == $selected_time){
+                        $subset[] = $thing;
+                    }
+                }
+                
+                foreach($subset as $otherthing){
+                    if($otherthing->day == $selected_day){
+                        $supersubset[] = $otherthing;
+                    }
+                }
+                
+                $info = $this->tableInfo($supersubset);
+                $this->data['info'] = $info;
+                
             //  None selected
-            else { //First time before searching
+            }else { //First time before searching
                 $selected_course = "ExampleCourseID";
                 $selected_time = "ExampleTime";
                 $selected_day = "ExampleDay";
                 $this->data['info'] = $this->tableInfo($temp = array());
             } 
+            
             $this->data['courseID'] = $selected_course;
             $this->data['selectedTime'] = $selected_time;
             $this->data['selectedDay'] = $selected_day;
