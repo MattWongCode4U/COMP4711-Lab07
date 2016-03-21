@@ -116,11 +116,19 @@ class Timetable extends CI_Model {
         // One for the course we want
         // One for the list type we want
     // Day Facet
-    public function findByDay($day, $id){
+    public function findByDay($day){
         
     }
     // Period Facet
-    public function findByTime($time, $id){
+    public function findByTime($time){
+        $periods_info_array = $this->getCoursesInfoArray($time);
+        $temp = array();
+        foreach($period_info_array as $info){
+            foreach($info as $ok){
+                $temp[] = $ok;
+            }
+        }
+        return $temp;
         
     }
     // Class Facet

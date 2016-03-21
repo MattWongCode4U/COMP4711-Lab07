@@ -29,30 +29,9 @@ class Welcome extends CI_Controller {
                 // periods = '8:30' '9:30' '10:30'
                 // courses = 'BLAW3600' 'COMP4560' 'COMP4711'
             
-            // Parse out to the Search.php file in {dropdown}
-                // format example: <option value="mon">mon</option>
-            //$this->dropdown = 
-            // Testing
-            /*
-            $this->data = array('selection' => array(array(
-                                                    'option' => '<option value=mon>mon</option>'
-                                                 ),
-                                                 array(
-                                                    'option' => '<option value=tue>tue</option>'
-                                                 ),
-                                                 array(
-                                                    'option' => '<option value=wed>wed</option>'
-                                                 )
-                                                )
-                        );
-            print_r($this->data);
-            echo "/n";
-            */ // This is a test for how the data is loaded for the options
+            // This is a test for how the data is loaded for the options
+
             // Course dropdown
-            while($key = current($courses)){
-                  $temp_course[] = array('option' => '<option value=' .(string) key($courses). '>' . (string) key($courses) . '</option>');
-                  next($courses);
-            }
             $temp_course = $this->dropDown($courses);
             $this->data['courseselection'] = $temp_course;
             // Time dropdown
@@ -60,7 +39,10 @@ class Welcome extends CI_Controller {
             $this->data['timeselection'] = $temp_time;
             
             // Check class && time
-            if(isset($_POST['class'])){ //Searched for a course
+            if(isset($_POST['class']) && $_POST['class'] == '-'){
+                $selected_course = "ExampleCourseID";
+                $this->data['info'] = $this->tableInfo($temp = array());
+            }else if(isset($_POST['class'])){ //Searched for a course
                 $selected_course = $_POST['class'];
                 //display information about the selected course
                 //$selected_course_arr = $courses[$selected_course];
@@ -70,9 +52,8 @@ class Welcome extends CI_Controller {
                 $this->data['info'] = $info;
             }else{ //First time before searching
                 $selected_course = "ExampleCourseID";
-                $temp_display = null;
-            }
-            
+                $this->data['info'] = $this->tableInfo($temp = array());
+            } 
             $this->data['courseID'] = $selected_course;
             
             //$testbuilding[] = array("building1" => "building 1", "building2" => "building 2");
