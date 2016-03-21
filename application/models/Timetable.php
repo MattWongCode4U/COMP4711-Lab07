@@ -24,6 +24,7 @@ class Timetable extends CI_Model {
         // Load days array
         $this->xday = simplexml_load_file(DATAPATH . 'day.xml');
         foreach($this->xday->days->dayoftheweek as $day){
+            $temp_days = array();
             foreach($day->info as $info){
                 // do stuff to info
                 $tempi = new InfoClass();
@@ -51,7 +52,7 @@ class Timetable extends CI_Model {
                 $tempi->etime = (string) $info->etime;
                 $tempi->day = (string) $info->day;
                 $tempi->course = (string) $info->class;
-                
+   
 //                $this->periods[(string) $timeblock['time']] = $tempi;
                 $temp_periods[] = array($tempi);
             }
@@ -117,7 +118,16 @@ class Timetable extends CI_Model {
         // One for the list type we want
     // Day Facet
     public function findByDay($day){
-        
+        $periods_info_array = $this->getDaysInfoArray($day);
+        $temp = array();
+        foreach($periods_info_array as $info){
+            foreach($info as $ok){
+                foreach($ok as $d){
+                    $temp[] = $d;
+                }
+            }
+        }
+        return $temp;
     }
     // Period Facet
     public function findByTime($time){
