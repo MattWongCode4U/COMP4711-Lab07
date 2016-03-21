@@ -2,6 +2,8 @@
 ---
 #### XML Lab
 
+This is a timetable for COMP Set 4B Winter 2016
+
 Luda
 Matthew
 Spencer

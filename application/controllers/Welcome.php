@@ -21,6 +21,7 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
             $this->load->helper('directory');
+            $this->load->helper('directory');
             $days = $this->timetable->getDaysArray();
             $periods = $this->timetable->getPeriodsArray();
             $courses = $this->timetable->getCoursesArray();
@@ -29,8 +30,7 @@ class Welcome extends CI_Controller {
                 // periods = '8:30' '9:30' '10:30'
                 // courses = 'BLAW3600' 'COMP4560' 'COMP4711'
             
-            // This is a test for how the data is loaded for the options
-
+            // Dropdown Setup
             // Course dropdown
             $temp_course = $this->dropDown($courses);
             $this->data['courseselection'] = $temp_course;
@@ -151,14 +151,12 @@ class Welcome extends CI_Controller {
                 $this->data['info'] = $this->tableInfo($temp = array());
             } 
             
+            // Sets the text to course, time and day selected by user
             $this->data['courseID'] = $selected_course;
             $this->data['selectedTime'] = $selected_time;
             $this->data['selectedDay'] = $selected_day;
             
-            // Load the php files
-                // header
-                // search
-                // footer
+            // Load in the files
             $this->load->view('header');
             $this->load->view('start_form');
             $this->parser->parse('course_dropdown', $this->data);
@@ -170,10 +168,26 @@ class Welcome extends CI_Controller {
             //$this->load->view('welcome_message');
 	}
         
+        /**
+         * Construct methods
+         * 
+         * Called when the controller is loaded
+         * 
+         * Loads the Timetable model
+         */
         function __construct(){
             parent::__construct();
             $this->load->model('timetable');
         }
+        
+        /**
+         * Table Info
+         * 
+         * Loads the data passed in into a table format.
+         * 
+         * @param type $data Data to parse into a table.
+         * @return string Array to return to be parsed into the view.
+         */
         function tableInfo($data){
                 $info[] = array('detail' => '<th>Building</th><th>Room</th><th>Instructor</th><th>Start Time</th><th>End Time</th><th>Day</th>');
                 foreach($data as $obj){
@@ -189,6 +203,15 @@ class Welcome extends CI_Controller {
                 }
             return $info;
         }
+        
+        /**
+         * Drop Down
+         * 
+         * Creates a dropdown list from data passed in.
+         * 
+         * @param type $data Data to get the array key from as a dropdown option.
+         * @return string Array to return to be parsed inot the view.
+         */
         function dropDown($data){
              $list[] = array('option' => '<option value=\'-\'>---</option>');
             while($key = current($data)){ // Gets the current value of the carot

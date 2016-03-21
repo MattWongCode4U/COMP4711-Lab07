@@ -34,10 +34,10 @@ class Timetable extends CI_Model {
                 $tempi->stime = (string) $info->stime;
                 $tempi->etime = (string) $info->etime;
                 $tempi->course = (string) $info->class;
-//                $this->days[(string) $day['day']] = $tempi;
-                $temp_days[] = array($tempi);
+                
+                $temp_days[] = $tempi;
             }
-            $this->days[(string) $day['day']][] = $temp_days;
+            $this->days[(string) $day['day']] = $temp_days;
         }
         
         // Load periods array
@@ -55,9 +55,9 @@ class Timetable extends CI_Model {
                 $tempi->course = (string) $info->class;
    
 //                $this->periods[(string) $timeblock['time']] = $tempi;
-                $temp_periods[] = array($tempi);
+                $temp_periods[] = $tempi;
             }
-            $this->periods[(string) $timeblock['stime']][] = $temp_periods;
+            $this->periods[(string) $timeblock['stime']] = $temp_periods;
         } 
         
         // Load courses array
@@ -77,7 +77,7 @@ class Timetable extends CI_Model {
 //                $this->courses[(string) $course['id']] = $tempi;
                  $temp_courses[] = $tempi;
             }
-            $this->courses[(string) $course['id']][] = $temp_courses;
+            $this->courses[(string) $course['id']] = $temp_courses;
         }
     }
     
@@ -122,11 +122,7 @@ class Timetable extends CI_Model {
         $periods_info_array = $this->getDaysInfoArray($day);
         $temp = array();
         foreach($periods_info_array as $info){
-            foreach($info as $ok){
-                foreach($ok as $d){
-                    $temp[] = $d;
-                }
-            }
+                $temp[] = $info;
         }
         return $temp;
     }
@@ -135,11 +131,7 @@ class Timetable extends CI_Model {
         $periods_info_array = $this->getPeriodsInfoArray($time);
         $temp = array();
         foreach($periods_info_array as $info){
-            foreach($info as $ok){
-                foreach($ok as $gottem){
-                    $temp[] = $gottem;
-                }
-            }
+                $temp[] = $info;
         }
         return $temp;
         
@@ -149,9 +141,7 @@ class Timetable extends CI_Model {
         $course_info_array = $this->getCoursesInfoArray($id);
         $temp = array();
         foreach($course_info_array as $info){
-            foreach($info as $ok){
-                $temp[] = $ok;
-            }
+                $temp[] = $info;
         }
         return $temp;
     }
