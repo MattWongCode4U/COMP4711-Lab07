@@ -53,7 +53,6 @@ class Welcome extends CI_Controller {
                   next($courses);
             }
             $this->data['courseselection'] = $temp_course;
-
             //Filling in information table
             if(isset($_POST['class'])){ //Searched for a course
                 $selected_course = $_POST['class'];
@@ -69,7 +68,7 @@ class Welcome extends CI_Controller {
                         '<td>' . (string) $course->stime . '</td>'.
                         '<td>' . (string) $course->etime . '</td>'.
                         '<td>' . (string) $course->day . '</td>'.
-                        '<td>' . (string) $course->course . '</td>'.
+                        //'<td>' . (string) $course->course . '</td>'.
                         '</tr>');
                 }
                 $this->data['info'] = $info;
