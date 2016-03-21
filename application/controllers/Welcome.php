@@ -37,6 +37,9 @@ class Welcome extends CI_Controller {
             // Time dropdown
             $temp_time = $this->dropDown($periods);
             $this->data['timeselection'] = $temp_time;
+            // Day dropdown
+            $temp_day = $this->dropDown($days);
+            $this->data['dayselection'] = $temp_day;
             
             // Check class && time
             // Only time selected
@@ -69,6 +72,19 @@ class Welcome extends CI_Controller {
             $this->data['selectedTime'] = $selected_time;
             //$this->data['selectedDay'] = $selected_day;
             
+            //days
+            if(isset($_POST['day']) && $_POST['day'] == '-'){
+                $selected_course = "ExampleCourseID";
+                $this->data['info'] = $this->tableInfo($temp = array());
+            }else if(isset($_POST['day'])){ //Searched for a course
+                $selected_course = $_POST['day'];
+                //display information about the selected course
+                //$selected_course_arr = $courses[$selected_course];
+                
+                $found = $this->timetable->findByDay($_POST['day']);
+                $info = $this->tableInfo($found);
+                $this->data['info'] = $info;
+            }
             //$testbuilding[] = array("building1" => "building 1", "building2" => "building 2");
             //$testroom[] = array("room1" => "room 1", "room2" => "room2");
             /*$temp_display[] = array('detail' => '<tr><td>' . (string)key($testbuilding[0]) . '</td>'
@@ -85,6 +101,7 @@ class Welcome extends CI_Controller {
             $this->load->view('start_form');
             $this->parser->parse('course_dropdown', $this->data);
             $this->parser->parse('time_dropdown', $this->data);
+            $this->parser->parse('day_dropdown', $this->data);
             $this->load->view('close_form');
             $this->parser->parse('classes', $this->data); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
