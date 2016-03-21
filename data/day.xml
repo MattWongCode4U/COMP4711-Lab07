@@ -121,7 +121,7 @@
 	            <room>1850</room>
 	            <instructor>Catherine Ryan</instructor>
 	            <stime>8:30</stime>
-				<etime>10:20</etime>
+		    <etime>10:20</etime>
 	            <class>BLAW3600</class>
 	        </info>
 	        <info type="lecture">
@@ -129,7 +129,7 @@
 	            <room>1021</room>
 	            <instructor>Brenda Fine</instructor>
 	            <stime>12:30</stime>
-				<etime>13:20</etime>
+		    <etime>13:20</etime>
 	            <class>COMP4560</class>
 	        </info>
 	    </dayoftheweek>

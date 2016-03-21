@@ -98,6 +98,7 @@
 	            <building>SW-1</building>
 	            <room>1205</room>
 	            <instructor>Mirela Gutica</instructor>
+                    <etime>14:30</etime>
 	            <day>wed</day>
 	            <class>COMP4735</class>
 	        </info>
@@ -106,7 +107,7 @@
 	            <room>2620</room>
 	            <instructor>Catherine Ryan</instructor>
 	            <etime>14:20</etime>
-				<day>thu</day>
+		    <day>thu</day>
 	            <class>BLAW3600</class>
 	        </info>
 	    </timeblock>

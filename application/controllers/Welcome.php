@@ -41,57 +41,73 @@ class Welcome extends CI_Controller {
             $temp_day = $this->dropDown($days);
             $this->data['dayselection'] = $temp_day;
             
-            // Check class && time
-            // Only time selected
-            if((isset($_POST['class']) && $_POST['class'] == '-') && (isset($_POST['time']) && $_POST['time'] != '-')){
-                $selected_course = "All Courses";
-                $selected_time = $_POST['time'];
-                $found = $this->timetable->findByTime($selected_time);
-                $info = $this->tableInfo($found);
-                $this->data['info'] = $info;
-                
-            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] == '-')){ //Searched for a course
+            // Check dropdown selections
+            // Only class selected
+            if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] == '-') && (isset($_POST['day']) && $_POST['day'] == '-')){
                 $selected_course = $_POST['class'];
                 $selected_time = "Any Time";
-                //display information about the selected course
-                //$selected_course_arr = $courses[$selected_course];
-                
+                $selected_day = "Any Day";
                 $found = $this->timetable->findByClass($_POST['class']);
                 $info = $this->tableInfo($found);
                 $this->data['info'] = $info;
                 
-            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] != '-')){
+            // Only time selected    
+            }else if((isset($_POST['class']) && $_POST['class'] == '-') && (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] == '-')){
+                $selected_course = "All Courses";
+                $selected_time = $_POST['time'];
+                $selected_day = "Any Day";
+                $found = $this->timetable->findByTime($selected_time);
+                $info = $this->tableInfo($found);
+                $this->data['info'] = $info;
+            
+            //  Only days selected
+            }else if((isset($_POST['class'])&& $_POST['class'] == '-')&& (isset($_POST['time']) && $_POST['time'] == '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
+                $selected_course = "All Courses";
+                $selected_time = "Any Time";
+                $selected_day = $_POST['day'];
+                $found = $this->timetable->findByDay($selected_day);
+                $info = $this->tableInfo($found);
+                $this->data['info'] = $info;
+            
+            //  Class and time selected
+            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] == '-')){
+                $selected_course = $_POST['class'];
+                $selected_time = $_POST['time'];
+                $selected_day = "ExampleDay";
                 echo "Both class and time are selected";
+            
+            //  Class and day selected
+            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] == '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
+                $selected_course = $_POST['class'];
+                $selected_time = "ExampleTime";
+                $selected_day = $_POST['day'];
+                echo "Both class and day are selected";
                 
-            }else{ //First time before searching
+            //  Time and day selected
+            }else if((isset($_POST['class'])&& $_POST['class'] == '-')&& (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
+                $selected_course = "ExampleCourseID";
+                $selected_time = $_POST['time'];
+                $selected_day = $_POST['day'];
+                echo "Both time and day are selected";
+                
+            //  Class, time and day selected
+            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] != '-') && (isset($_POST['day']) && $_POST['day'] != '-')){
+                $selected_course = $_POST['class'];
+                $selected_time = $_POST['time'];
+                $selected_day = $_POST['day'];
+                echo "Class, time and day are selected";
+                
+            }
+            //  None selected
+            else { //First time before searching
                 $selected_course = "ExampleCourseID";
                 $selected_time = "ExampleTime";
+                $selected_day = "ExampleDay";
                 $this->data['info'] = $this->tableInfo($temp = array());
             } 
             $this->data['courseID'] = $selected_course;
             $this->data['selectedTime'] = $selected_time;
-            //$this->data['selectedDay'] = $selected_day;
-            
-            //days
-            if(isset($_POST['day']) && $_POST['day'] == '-'){
-                $selected_course = "ExampleCourseID";
-                $this->data['info'] = $this->tableInfo($temp = array());
-            }else if(isset($_POST['day'])){ //Searched for a course
-                $selected_course = $_POST['day'];
-                //display information about the selected course
-                //$selected_course_arr = $courses[$selected_course];
-                
-                $found = $this->timetable->findByDay($_POST['day']);
-                $info = $this->tableInfo($found);
-                $this->data['info'] = $info;
-            }
-            //$testbuilding[] = array("building1" => "building 1", "building2" => "building 2");
-            //$testroom[] = array("room1" => "room 1", "room2" => "room2");
-            /*$temp_display[] = array('detail' => '<tr><td>' . (string)key($testbuilding[0]) . '</td>'
-                . '<td>' . (string)key($testroom[0]) . '</td></tr>', 
-                'detail' => '<tr><td>' . (string)key($testbuilding[1]) . '</td>'
-                . '<td>' . (string)key($testroom[1]) . '</td></tr>');*/
-            //$this->data['info'] = $temp_display;
+            $this->data['selectedDay'] = $selected_day;
             
             // Load the php files
                 // header
