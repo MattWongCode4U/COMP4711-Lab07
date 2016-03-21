@@ -16,7 +16,6 @@ class Timetable extends CI_Model {
     protected $periods = array();
     // Class xml
     protected $courses = array();
-
     function __construct()
     {
         // Call the Model constructor
@@ -35,7 +34,6 @@ class Timetable extends CI_Model {
                 $tempi->stime = (string) $info->stime;
                 $tempi->etime = (string) $info->etime;
                 $tempi->course = (string) $info->class;
-
 //                $this->days[(string) $day['day']] = $tempi;
                 $temp_days[] = array($tempi);
             }
@@ -103,7 +101,6 @@ class Timetable extends CI_Model {
         else
             return null;
     }
-
     function getPeriodsArray(){
         return $this->periods;
     }
@@ -139,7 +136,6 @@ class Timetable extends CI_Model {
         return $temp;
     }
 }
-
 class InfoClass {
     public $building;
     public $room;
