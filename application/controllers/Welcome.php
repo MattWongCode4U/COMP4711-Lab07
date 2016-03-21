@@ -52,7 +52,7 @@ class Welcome extends CI_Controller {
                   $temp_course[] = array('option' => '<option value=' .(string) key($courses). '>' . (string) key($courses) . '</option>');
                   next($courses);
             }
-            $this->data['selection'] = $temp_course;
+            $this->data['courseselection'] = $temp_course;
 
             //Filling in information table
             if(isset($_POST['class'])){ //Searched for a course
@@ -94,7 +94,10 @@ class Welcome extends CI_Controller {
                 // search
                 // footer
             $this->load->view('header');
-            $this->parser->parse('dropdown', $this->data);
+            $this->load->view('start_form');
+            $this->parser->parse('course_dropdown', $this->data);
+            $this->parser->parse('time_dropdown', $this->data);
+            $this->load->view('close_form');
             $this->parser->parse('classes', $this->data); // This is where the data from the dropdown select will be loaded
             $this->load->view('footer');
             //$this->load->view('welcome_message');
