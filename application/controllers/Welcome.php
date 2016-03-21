@@ -48,31 +48,26 @@ class Welcome extends CI_Controller {
             print_r($this->data);
             echo "/n";
             */ // This is a test for how the data is loaded for the options
+            // Course dropdown
             while($key = current($courses)){
                   $temp_course[] = array('option' => '<option value=' .(string) key($courses). '>' . (string) key($courses) . '</option>');
                   next($courses);
             }
+            $temp_course = $this->dropDown($courses);
             $this->data['courseselection'] = $temp_course;
-            //Filling in information table
+            // Time dropdown
+            $temp_time = $this->dropDown($periods);
+            $this->data['timeselection'] = $temp_time;
+            
+            // Check class && time
             if(isset($_POST['class'])){ //Searched for a course
                 $selected_course = $_POST['class'];
                 //display information about the selected course
                 //$selected_course_arr = $courses[$selected_course];
                 
                 $found = $this->timetable->findByClass($_POST['class']);
-                foreach($found as $course){
-                    $info[] = array('detail' => '<tr>'.
-                        '<td>' . (string) $course->building . '</td>'.
-                        '<td>' . (string) $course->room . '</td>'.
-                        '<td>' . (string) $course->instructor . '</td>'.
-                        '<td>' . (string) $course->stime . '</td>'.
-                        '<td>' . (string) $course->etime . '</td>'.
-                        '<td>' . (string) $course->day . '</td>'.
-                        //'<td>' . (string) $course->course . '</td>'.
-                        '</tr>');
-                }
+                $info = $this->tableInfo($found);
                 $this->data['info'] = $info;
-                
             }else{ //First time before searching
                 $selected_course = "ExampleCourseID";
                 $temp_display = null;
@@ -105,5 +100,29 @@ class Welcome extends CI_Controller {
         function __construct(){
             parent::__construct();
             $this->load->model('timetable');
+        }
+        function tableInfo($data){
+                $info[] = array('detail' => '<th>Building</th><th>Room</th><th>Instructor</th><th>Start Time</th><th>End Time</th><th>Day</th>');
+                foreach($data as $obj){
+                    $info[] = array('detail' => '<tr>'.
+                        '<td>' . (string) $obj->building . '</td>'.
+                        '<td>' . (string) $obj->room . '</td>'.
+                        '<td>' . (string) $obj->instructor . '</td>'.
+                        '<td>' . (string) $obj->stime . '</td>'.
+                        '<td>' . (string) $obj->etime . '</td>'.
+                        '<td>' . (string) $obj->day . '</td>'.
+                        //'<td>' . (string) $obj->course . '</td>'.
+                        '</tr>');
+                }
+            return $info;
+        }
+        function dropDown($data){
+             $list[] = array('option' => '<option value=\'-\'>---</option>');
+            while($key = current($data)){ // Gets the current value of the carot
+                  $list[] = array('option' => '<option value=' .(string) key($data). '>' . (string) key($data) . '</option>');
+                  next($data); // Moves the carot to the next position
+            }
+            reset($data); // Restarts the carot to the beginning of the array
+            return $list;
         }
 }

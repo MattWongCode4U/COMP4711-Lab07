@@ -24,7 +24,6 @@ class Timetable extends CI_Model {
         // Load days array
         $this->xday = simplexml_load_file(DATAPATH . 'day.xml');
         foreach($this->xday->days->dayoftheweek as $day){
-            $temp_days = array();
             foreach($day->info as $info){
                 // do stuff to info
                 $tempi = new InfoClass();
@@ -43,7 +42,7 @@ class Timetable extends CI_Model {
         // Load periods array
         $this->xperiod = simplexml_load_file(DATAPATH . 'period.xml');
         foreach($this->xperiod->periods->timeblock as $timeblock){
-            $temp_periods = array();
+            // $temp_periods = array();
             foreach($timeblock->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -56,7 +55,7 @@ class Timetable extends CI_Model {
 //                $this->periods[(string) $timeblock['time']] = $tempi;
                 $temp_periods[] = array($tempi);
             }
-            $this->periods[(string) $timeblock['time']][] = $temp_periods;
+            $this->periods[(string) $timeblock['stime']][] = $temp_periods;
         } 
         
         // Load courses array

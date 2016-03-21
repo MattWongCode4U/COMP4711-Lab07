@@ -1,4 +1,4 @@
-<select name="class">
+<select name="time">
     {timeselection}
     {option}
     {/timeselection}
