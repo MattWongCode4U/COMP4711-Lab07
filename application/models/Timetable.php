@@ -43,6 +43,7 @@ class Timetable extends CI_Model {
         $this->xperiod = simplexml_load_file(DATAPATH . 'period.xml');
         foreach($this->xperiod->periods->timeblock as $timeblock){
             // $temp_periods = array();
+            $temp_periods = array();
             foreach($timeblock->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -121,11 +122,13 @@ class Timetable extends CI_Model {
     }
     // Period Facet
     public function findByTime($time){
-        $periods_info_array = $this->getCoursesInfoArray($time);
+        $periods_info_array = $this->getPeriodsInfoArray($time);
         $temp = array();
-        foreach($period_info_array as $info){
+        foreach($periods_info_array as $info){
             foreach($info as $ok){
-                $temp[] = $ok;
+                foreach($ok as $gottem){
+                    $temp[] = $gottem;
+                }
             }
         }
         return $temp;

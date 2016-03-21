@@ -39,22 +39,35 @@ class Welcome extends CI_Controller {
             $this->data['timeselection'] = $temp_time;
             
             // Check class && time
-            if(isset($_POST['class']) && $_POST['class'] == '-'){
-                $selected_course = "ExampleCourseID";
-                $this->data['info'] = $this->tableInfo($temp = array());
-            }else if(isset($_POST['class'])){ //Searched for a course
+            // Only time selected
+            if((isset($_POST['class']) && $_POST['class'] == '-') && (isset($_POST['time']) && $_POST['time'] != '-')){
+                $selected_course = "All Courses";
+                $selected_time = $_POST['time'];
+                $found = $this->timetable->findByTime($selected_time);
+                $info = $this->tableInfo($found);
+                $this->data['info'] = $info;
+                
+            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] == '-')){ //Searched for a course
                 $selected_course = $_POST['class'];
+                $selected_time = "Any Time";
                 //display information about the selected course
                 //$selected_course_arr = $courses[$selected_course];
                 
                 $found = $this->timetable->findByClass($_POST['class']);
                 $info = $this->tableInfo($found);
                 $this->data['info'] = $info;
+                
+            }else if((isset($_POST['class'])&& $_POST['class'] != '-')&& (isset($_POST['time']) && $_POST['time'] != '-')){
+                echo "Both class and time are selected";
+                
             }else{ //First time before searching
                 $selected_course = "ExampleCourseID";
+                $selected_time = "ExampleTime";
                 $this->data['info'] = $this->tableInfo($temp = array());
             } 
             $this->data['courseID'] = $selected_course;
+            $this->data['selectedTime'] = $selected_time;
+            //$this->data['selectedDay'] = $selected_day;
             
             //$testbuilding[] = array("building1" => "building 1", "building2" => "building 2");
             //$testroom[] = array("room1" => "room 1", "room2" => "room2");
