@@ -16,7 +16,6 @@ class Timetable extends CI_Model {
     protected $periods = array();
     // Class xml
     protected $courses = array();
-
     function __construct()
     {
         // Call the Model constructor
@@ -25,6 +24,7 @@ class Timetable extends CI_Model {
         // Load days array
         $this->xday = simplexml_load_file(DATAPATH . 'day.xml');
         foreach($this->xday->days->dayoftheweek as $day){
+            $temp_days = array();
             foreach($day->info as $info){
                 // do stuff to info
                 $tempi = new InfoClass();
@@ -34,7 +34,6 @@ class Timetable extends CI_Model {
                 $tempi->stime = (string) $info->stime;
                 $tempi->etime = (string) $info->etime;
                 $tempi->course = (string) $info->class;
-
 //                $this->days[(string) $day['day']] = $tempi;
                 $temp_days[] = array($tempi);
             }
@@ -44,6 +43,7 @@ class Timetable extends CI_Model {
         // Load periods array
         $this->xperiod = simplexml_load_file(DATAPATH . 'period.xml');
         foreach($this->xperiod->periods->timeblock as $timeblock){
+            $temp_periods = array();
             foreach($timeblock->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -63,6 +63,7 @@ class Timetable extends CI_Model {
         $this->xclass = simplexml_load_file(DATAPATH . 'class.xml');
         foreach($this->xclass->courses->course as $course){
             //$this->courses[] = (string) $course['id'];
+            $temp_courses = array();
             foreach($course->info as $info){
                 $tempi = new InfoClass();
                 $tempi->building = (string) $info->building;
@@ -100,7 +101,6 @@ class Timetable extends CI_Model {
         else
             return null;
     }
-    
     function getPeriodsArray(){
         return $this->periods;
     }
@@ -126,10 +126,16 @@ class Timetable extends CI_Model {
     }
     // Class Facet
     public function findByClass($id){
-        
+        $course_info_array = $this->getCoursesInfoArray($id);
+        $temp = array();
+        foreach($course_info_array as $info){
+            foreach($info as $ok){
+                $temp[] = $ok;
+            }
+        }
+        return $temp;
     }
 }
-
 class InfoClass {
     public $building;
     public $room;

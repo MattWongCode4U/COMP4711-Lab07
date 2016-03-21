@@ -100,7 +100,7 @@
 	        </info>
 	        <info type="lab">
 	            <building>SW-3</building>
-	            <room>4725</room>
+	            <room>2620</room>
 	            <instructor>Catherine Ryan</instructor>
 	            <stime>13:30</stime>
 				<etime>15:20</etime>
@@ -118,15 +118,15 @@
 	    <dayoftheweek day="fri">
 	        <info type="lecture">
 	            <building>SW-5</building>
-	            <room>1840</room>
+	            <room>1850</room>
 	            <instructor>Catherine Ryan</instructor>
 	            <stime>8:30</stime>
 				<etime>10:20</etime>
 	            <class>BLAW3600</class>
 	        </info>
 	        <info type="lecture">
-	            <building>SW-3</building>
-	            <room>1750</room>
+	            <building>SW-1</building>
+	            <room>1021</room>
 	            <instructor>Brenda Fine</instructor>
 	            <stime>12:30</stime>
 				<etime>13:20</etime>

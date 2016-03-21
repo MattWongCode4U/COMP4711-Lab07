@@ -22,7 +22,7 @@
 			</info>
 			<info type="lecture">
 				<building>SW-5</building>
-				<room>1840</room>
+				<room>1850</room>
 				<instructor>Catherine Ryan</instructor>
 				<etime>10:20</etime>
 				<day>fri</day>
@@ -85,8 +85,8 @@
 	    </timeblock>
 	    <timeblock stime="12:30">
 	        <info type="lecture">
-	            <building>SW-3</building>
-	            <room>1750</room>
+	            <building>SW-1</building>
+	            <room>1021</room>
 	            <instructor>Brenda Fine</instructor>
 	            <etime>13:20</etime>
 				<day>fri</day>
@@ -103,7 +103,7 @@
 	        </info>
 			<info type="lab">
 	            <building>SW-3</building>
-	            <room>4725</room>
+	            <room>2620</room>
 	            <instructor>Catherine Ryan</instructor>
 	            <etime>14:20</etime>
 				<day>thu</day>
