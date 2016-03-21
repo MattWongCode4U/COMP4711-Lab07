@@ -6,7 +6,7 @@
 		<course id="BLAW3600">
 			<info type="lab">
 				<building>SW-3</building>
-				<room>4725</room>
+				<room>2620</room>
 				<instructor>Catherine Ryan</instructor>
 				<stime>13:30</stime>
 				<etime>15:20</etime>
@@ -14,7 +14,7 @@
 			</info>
 			<info type="lecture">
 				<building>SW-5</building>
-				<room>1840</room>
+				<room>1850</room>
 				<instructor>Catherine Ryan</instructor>
 				<stime>8:30</stime>
 				<etime>10:20</etime>
@@ -23,7 +23,7 @@
 		</course>
 		<course id="COMP4560">
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>320</room>
 				<instructor>Brenda Fine</instructor>
 				<stime>9:30</stime>
@@ -31,7 +31,7 @@
 				<day>tue</day>
 			</info>
 			<info type="lecture">
-				<building>SW5</building>
+				<building>SW-5</building>
 				<room>1850</room>
 				<instructor>Brenda Fine</instructor>
 				<stime>11:30</stime>
@@ -39,8 +39,8 @@
 				<day>tue</day>
 			</info>
 			<info type="lecture">
-				<building>SW3</building>
-				<room>1750</room>
+				<building>SW-1</building>
+				<room>1021</room>
 				<instructor>Brenda Fine</instructor>
 				<stime>12:30</stime>
 				<etime>13:20</etime>
@@ -49,7 +49,7 @@
 		</course>
 		<course id="COMP4711">
 			<info type="lecture">
-				<building>SW5</building>
+				<building>SW-5</building>
 				<room>1840</room>
 				<instructor>James Parry</instructor>
 				<stime>14:30</stime>
@@ -57,7 +57,7 @@
 				<day>tue</day>
 			</info>
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>310</room>
 				<instructor>James Parry</instructor>
 				<stime>15:30</stime>
@@ -67,7 +67,7 @@
 		</course>
 		<course id="COMP4735">
 			<info type="lecture">
-				<building>SW1</building>
+				<building>SW-1</building>
 				<room>1205</room>
 				<instructor>Mirela Gutica</instructor>
 				<stime>11:30</stime>
@@ -75,7 +75,7 @@
 				<day>mon</day>
 			</info>
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Mathew Linder</instructor>
 				<stime>8:30</stime>
@@ -83,7 +83,7 @@
 				<day>wed</day>
 			</info>
 			<info type="lecture">
-				<building>SW1</building>
+				<building>SW-1</building>
 				<room>1205</room>
 				<instructor>Mirela Gutica</instructor>
 				<stime>13:30</stime>
@@ -91,7 +91,7 @@
 				<day>wed</day>
 			</info>
 			<info type="lecture">
-				<building>SW3</building>
+				<building>SW-3</building>
 				<room>1710</room>
 				<instructor>Mirela Gutica</instructor>
 				<stime>11:30</stime>
@@ -101,7 +101,7 @@
 		</course>
 		<course id="COMP4932">
 			<info type="lecture">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<stime>8:30</stime>
@@ -109,7 +109,7 @@
 				<day>mon</day>
 			</info>
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<stime>15:30</stime>
@@ -119,7 +119,7 @@
 		</course>
 		<course id="COMP4995">
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<stime>14:30</stime>
@@ -127,7 +127,7 @@
 				<day>mon</day>
 			</info>
 			<info type="lecture">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<stime>10:30</stime>
@@ -135,7 +135,7 @@
 				<day>wed</day>
 			</info>
 			<info type="lab">
-				<building>SE12</building>
+				<building>SE-12</building>
 				<room>308</room>
 				<instructor>Dennis Richards</instructor>
 				<stime>11:30</stime>
